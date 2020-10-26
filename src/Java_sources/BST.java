@@ -25,9 +25,10 @@ package Java_sources; /*********************************************************
  *
  ******************************************************************************/
 
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
-import java.util.Random;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.sql.Time;
+import java.util.*;
 
 /**
  * The {@code BST} class represents an ordered symbol table of generic
@@ -531,9 +532,155 @@ public class BST<Key extends Comparable<Key>, Value> {
      *
      * @param args the command-line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         BST<Long, Integer> st = new BST<>();
 
-//        TODO: Write your code here
+        //        TODO: Write your code here
+        // set 1
+        File set_1_insert_data_1File = new File("src/data/insert/set1/data_1.txt");
+        File set_1_insert_data_2File = new File("src/data/insert/set1/data_2.txt");
+        File set_1_insert_data_3File = new File("src/data/insert/set1/data_3.txt");
+
+        File set_1_search_data_1File = new File("src/data/search/set1/data_1.txt");
+        File set_1_search_data_2File = new File("src/data/search/set1/data_2.txt");
+        File set_1_search_data_3File = new File("src/data/search/set1/data_3.txt");
+
+        File set_1_delete_data_1File = new File("src/data/delete/set1/data_1.txt");
+        File set_1_delete_data_2File = new File("src/data/delete/set1/data_2.txt");
+        File set_1_delete_data_3File = new File("src/data/delete/set1/data_3.txt");
+
+
+
+        System.out.println("====Start Set 1 Data 1 ===\n\n");
+        st = readAndInsert(set_1_insert_data_1File, 1);
+        mySearch(st, set_1_search_data_1File, 1);
+        myDelete(readAndInsert(set_1_insert_data_1File, 1), set_1_delete_data_1File, 1);
+        System.out.println("====End Set 1 Data 1 ===\n\n");
+
+
+        System.out.println("====Start Set 1 Data 2 ===\n\n");
+        st = readAndInsert(set_1_insert_data_2File, 1);
+        mySearch(st, set_1_search_data_2File, 1);
+        myDelete(readAndInsert(set_1_insert_data_2File, 1), set_1_delete_data_2File, 1);
+        System.out.println("====Start Set 1 Data 2 ===\n\n");
+
+        System.out.println("====Start Set 1 Data 3 ===\n\n");
+        st = readAndInsert(set_1_insert_data_3File, 1);
+        mySearch(st, set_1_search_data_3File, 1);
+        myDelete(readAndInsert(set_1_insert_data_3File, 1), set_1_delete_data_3File, 1);
+        System.out.println("====End Set 1 Data 3 ===\n\n");
+
+
+        // set 2
+        File set_2_insert_data_1File = new File("src/data/insert/set2/data_1.txt");
+        File set_2_insert_data_2File = new File("src/data/insert/set2/data_2.txt");
+        File set_2_insert_data_3File = new File("src/data/insert/set1/data_3.txt");
+
+        File set_2_search_data_1File = new File("src/data/search/set2/data_1.txt");
+        File set_2_search_data_2File = new File("src/data/search/set2/data_2.txt");
+        File set_2_search_data_3File = new File("src/data/search/set2/data_3.txt");
+
+        File set_2_delete_data_1File = new File("src/data/delete/set2/data_1.txt");
+        File set_2_delete_data_2File = new File("src/data/delete/set2/data_2.txt");
+        File set_2_delete_data_3File = new File("src/data/delete/set2/data_3.txt");
+
+
+
+        System.out.println("====Start Set 2 Data 1 ===\n\n");
+        st = readAndInsert(set_2_insert_data_1File, 2);
+        mySearch(st, set_2_search_data_1File, 2);
+        myDelete(readAndInsert(set_2_insert_data_1File, 2), set_2_delete_data_1File, 2);
+        System.out.println("====End Set 2 Data 1 ===\n\n");
+
+        System.out.println("====Start Set 2 Data 2 ===\n\n");
+        st = readAndInsert(set_2_insert_data_2File, 2);
+        mySearch(st, set_2_search_data_2File, 2);
+        myDelete(readAndInsert(set_2_insert_data_2File, 2), set_2_delete_data_2File, 2);
+        System.out.println("====End Set 2 Data 2 ===\n\n");
+
+
+        System.out.println("====Start Set 2 Data 3 ===\n\n");
+        st = readAndInsert(set_2_insert_data_3File, 2);
+        mySearch(st, set_2_search_data_3File, 2);
+        myDelete(readAndInsert(set_2_insert_data_3File, 2), set_2_delete_data_3File, 2);
+        System.out.println("====End Set 2 Data 3 ===\n\n");
+
+    }
+
+  private static BST<Long, Integer> readAndInsert(File dataFile, int set)
+      throws FileNotFoundException {
+      BST<Long, Integer> insertBST = new BST<>();
+        Scanner myReader = new Scanner(dataFile);
+        Integer value = 0;
+
+        System.out.println("Set :" + set);
+        System.out.println("file name: " + dataFile.getName());
+        System.out.println("Inserting Start");
+        long startTime = System.currentTimeMillis();
+        System.out.println("start time time :" + System.currentTimeMillis());
+        while (myReader.hasNextLine()) {
+          String data = myReader.nextLine();
+          StringTokenizer stringTokenizer = new StringTokenizer(data, ",");
+          while (stringTokenizer.hasMoreTokens()) {
+            String keyString = stringTokenizer.nextToken();
+            Long key = Long.parseLong(keyString);
+              insertBST.put(key, value);
+            value++;
+          }
+        }
+        System.out.println("Time taken to Insert (in ms): " + (System.currentTimeMillis() - startTime));
+        myReader.close();
+        System.out.println("\n\n");
+        return insertBST;
+  }
+
+    private static void mySearch(BST<Long, Integer> st, File dataFile, int set)
+            throws FileNotFoundException {
+        Scanner myReader = new Scanner(dataFile);
+        Integer value = 0;
+
+        System.out.println("Set :" + set);
+        System.out.println("file name: " + dataFile.getName());
+        System.out.println("Search Start");
+        long startTime = System.currentTimeMillis();
+        System.out.println("start time time :" + System.currentTimeMillis());
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            StringTokenizer stringTokenizer = new StringTokenizer(data, ",");
+            while (stringTokenizer.hasMoreTokens()) {
+                String keyString = stringTokenizer.nextToken();
+                Long key = Long.parseLong(keyString);
+                st.contains(key);
+                value++;
+            }
+        }
+        System.out.println("Time taken to Search (in ms): " + (System.currentTimeMillis() - startTime));
+        myReader.close();
+        System.out.println("\n\n");
+    }
+
+    private static void myDelete(BST<Long, Integer> st, File dataFile, int set)
+            throws FileNotFoundException {
+        Scanner myReader = new Scanner(dataFile);
+        Integer value = 0;
+
+        System.out.println("Set :" + set);
+        System.out.println("file name: " + dataFile.getName());
+        System.out.println("Search Delete");
+        long startTime = System.currentTimeMillis();
+        System.out.println("start time time :" + System.currentTimeMillis());
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            StringTokenizer stringTokenizer = new StringTokenizer(data, ",");
+            while (stringTokenizer.hasMoreTokens()) {
+                String keyString = stringTokenizer.nextToken();
+                Long key = Long.parseLong(keyString);
+                st.contains(key);
+                value++;
+            }
+        }
+        System.out.println("Time taken to Delete (in ms): " + (System.currentTimeMillis() - startTime));
+        myReader.close();
+        System.out.println("\n\n");
     }
 }
