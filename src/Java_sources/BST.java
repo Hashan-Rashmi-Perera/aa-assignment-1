@@ -616,7 +616,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         System.out.println("Set :" + set);
         System.out.println("file name: " + dataFile.getName());
         System.out.println("Inserting Start");
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         System.out.println("start time time :" + System.currentTimeMillis());
         while (myReader.hasNextLine()) {
           String data = myReader.nextLine();
@@ -628,7 +628,12 @@ public class BST<Key extends Comparable<Key>, Value> {
             value++;
           }
         }
-        System.out.println("Time taken to Insert (in ms): " + (System.currentTimeMillis() - startTime));
+      long timePeriod = System.nanoTime() - startTime ;
+      if (timePeriod != 0) {
+          System.out.println("Time taken to Delete (in ms): " + (timePeriod/ 1000));
+      } else {
+          System.out.println("Time taken to Delete (in ms): " + timePeriod);
+      }
         myReader.close();
         System.out.println("\n\n");
         return insertBST;
@@ -642,7 +647,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         System.out.println("Set :" + set);
         System.out.println("file name: " + dataFile.getName());
         System.out.println("Search Start");
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         System.out.println("start time time :" + System.currentTimeMillis());
         while (myReader.hasNextLine()) {
             String data = myReader.nextLine();
@@ -654,7 +659,12 @@ public class BST<Key extends Comparable<Key>, Value> {
                 value++;
             }
         }
-        System.out.println("Time taken to Search (in ms): " + (System.currentTimeMillis() - startTime));
+        long timePeriod = System.nanoTime() - startTime ;
+        if (timePeriod != 0) {
+            System.out.println("Time taken to Delete (in ms): " + (timePeriod/ 1000));
+        } else {
+            System.out.println("Time taken to Delete (in ms): " + timePeriod);
+        }
         myReader.close();
         System.out.println("\n\n");
     }
@@ -667,7 +677,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         System.out.println("Set :" + set);
         System.out.println("file name: " + dataFile.getName());
         System.out.println("Search Delete");
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         System.out.println("start time time :" + System.currentTimeMillis());
         while (myReader.hasNextLine()) {
             String data = myReader.nextLine();
@@ -679,7 +689,12 @@ public class BST<Key extends Comparable<Key>, Value> {
                 value++;
             }
         }
-        System.out.println("Time taken to Delete (in ms): " + (System.currentTimeMillis() - startTime));
+        long timePeriod = System.nanoTime() - startTime ;
+        if (timePeriod != 0) {
+            System.out.println("Time taken to Delete (in ms): " + (timePeriod/ 1000));
+        } else {
+            System.out.println("Time taken to Delete (in ms): " + timePeriod);
+        }
         myReader.close();
         System.out.println("\n\n");
     }
