@@ -551,24 +551,24 @@ public class BST<Key extends Comparable<Key>, Value> {
 
 
 
-        System.out.println("====Start Set 1 Data 1 ===\n\n");
-        st = readAndInsert(set_1_insert_data_1File, 1);
-        mySearch(st, set_1_search_data_1File, 1);
-        myDelete(readAndInsert(set_1_insert_data_1File, 1), set_1_delete_data_1File, 1);
-        System.out.println("====End Set 1 Data 1 ===\n\n");
+//        System.out.println("====Start Set 1 Data 1 ===\n\n");
+//        st = readAndInsert(set_1_insert_data_1File, 1);
+//        mySearch(st, set_1_search_data_1File, 1);
+//        myDelete(readAndInsert(set_1_insert_data_1File, 1), set_1_delete_data_1File, 1);
+//        System.out.println("====End Set 1 Data 1 ===\n\n");
 
 
-        System.out.println("====Start Set 1 Data 2 ===\n\n");
-        st = readAndInsert(set_1_insert_data_2File, 1);
-        mySearch(st, set_1_search_data_2File, 1);
-        myDelete(readAndInsert(set_1_insert_data_2File, 1), set_1_delete_data_2File, 1);
-        System.out.println("====Start Set 1 Data 2 ===\n\n");
+//        System.out.println("====Start Set 1 Data 2 ===\n\n");
+//        st = readAndInsert(set_1_insert_data_2File, 1);
+//        mySearch(st, set_1_search_data_2File, 1);
+//        myDelete(readAndInsert(set_1_insert_data_2File, 1), set_1_delete_data_2File, 1);
+//        System.out.println("====Start Set 1 Data 2 ===\n\n");
 
-        System.out.println("====Start Set 1 Data 3 ===\n\n");
-        st = readAndInsert(set_1_insert_data_3File, 1);
-        mySearch(st, set_1_search_data_3File, 1);
-        myDelete(readAndInsert(set_1_insert_data_3File, 1), set_1_delete_data_3File, 1);
-        System.out.println("====End Set 1 Data 3 ===\n\n");
+//        System.out.println("====Start Set 1 Data 3 ===\n\n");
+//        st = readAndInsert(set_1_insert_data_3File, 1);
+//        mySearch(st, set_1_search_data_3File, 1);
+//        myDelete(readAndInsert(set_1_insert_data_3File, 1), set_1_delete_data_3File, 1);
+//        System.out.println("====End Set 1 Data 3 ===\n\n");
 
 
         // set 2
@@ -586,17 +586,17 @@ public class BST<Key extends Comparable<Key>, Value> {
 
 
 
-        System.out.println("====Start Set 2 Data 1 ===\n\n");
-        st = readAndInsert(set_2_insert_data_1File, 2);
-        mySearch(st, set_2_search_data_1File, 2);
-        myDelete(readAndInsert(set_2_insert_data_1File, 2), set_2_delete_data_1File, 2);
-        System.out.println("====End Set 2 Data 1 ===\n\n");
+//        System.out.println("====Start Set 2 Data 1 ===\n\n");
+//        st = readAndInsert(set_2_insert_data_1File, 2);
+//        mySearch(st, set_2_search_data_1File, 2);
+//        myDelete(readAndInsert(set_2_insert_data_1File, 2), set_2_delete_data_1File, 2);
+//        System.out.println("====End Set 2 Data 1 ===\n\n");
 
-        System.out.println("====Start Set 2 Data 2 ===\n\n");
-        st = readAndInsert(set_2_insert_data_2File, 2);
-        mySearch(st, set_2_search_data_2File, 2);
-        myDelete(readAndInsert(set_2_insert_data_2File, 2), set_2_delete_data_2File, 2);
-        System.out.println("====End Set 2 Data 2 ===\n\n");
+//        System.out.println("====Start Set 2 Data 2 ===\n\n");
+//        st = readAndInsert(set_2_insert_data_2File, 2);
+//        mySearch(st, set_2_search_data_2File, 2);
+//        myDelete(readAndInsert(set_2_insert_data_2File, 2), set_2_delete_data_2File, 2);
+//        System.out.println("====End Set 2 Data 2 ===\n\n");
 
 
         System.out.println("====Start Set 2 Data 3 ===\n\n");
@@ -675,7 +675,7 @@ public class BST<Key extends Comparable<Key>, Value> {
             while (stringTokenizer.hasMoreTokens()) {
                 String keyString = stringTokenizer.nextToken();
                 Long key = Long.parseLong(keyString);
-                st.contains(key);
+                st.delete(key);
                 value++;
             }
         }
